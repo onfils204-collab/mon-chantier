@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mon Chantier – plans, matériels et budget</title>
+<meta name="theme-color" content="#2f6b4f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M8 22V13l8-5 8 5v9M13 22v-6h6v6" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <span>Mon Chantier</span>
+  </div>
+  <nav id="nav" aria-label="Pages">
+    <a href="#plan" data-page="plan">Plan</a>
+    <a href="#materiels" data-page="materiels">Matériels &amp; prix</a>
+    <a href="#notes" data-page="notes">Notes</a>
+    <a href="#budget" data-page="budget">Budget</a>
+    <a href="#couleurs" data-page="couleurs">Couleurs</a>
+  </nav>
+  <div class="top-actions">
+    <span id="saveState" class="save" aria-live="polite">Enregistré</span>
+    <button class="btn ghost" id="btnExport" title="Télécharger une sauvegarde de tout le projet">Exporter</button>
+    <button class="btn ghost" id="btnImport" title="Recharger une sauvegarde">Importer</button>
+    <input type="file" id="fileImport" accept=".json,application/json" hidden>
+  </div>
+</header>
+
+<div id="bbar" class="bbar" hidden></div>
+
+<main>
+  <section id="page-plan" class="page" hidden>
+    <div class="subtabs" id="planTabs" role="tablist">
+      <button role="tab" data-t="2d">Dessin 2D</button>
+      <button role="tab" data-t="3d">Vue 3D</button>
+      <button role="tab" data-t="steps">Étapes de construction</button>
+    </div>
+    <div id="planDraw" class="plan-layout">
+      <aside class="palette" id="palette" aria-label="Palette d'éléments à glisser sur le plan"></aside>
+      <div class="plan-main">
+        <div class="toolbar" id="tools"></div>
+        <div class="hint" id="hint"></div>
+        <div class="stage" id="stage">
+          <canvas id="c2d"></canvas>
+          <canvas id="c3d" hidden></canvas>
+        </div>
+      </div>
+      <aside class="side" id="side"></aside>
+    </div>
+    <div id="stepsView" hidden></div>
+  </section>
+
+  <section id="page-materiels" class="page" hidden></section>
+  <section id="page-notes" class="page" hidden></section>
+  <section id="page-budget" class="page" hidden></section>
+  <section id="page-couleurs" class="page" hidden></section>
+</main>
+
+<dialog id="dlg"></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/core.js"></script>
+<script src="js/data.js"></script>
+<script src="js/enterprises.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/shapes.js"></script>
+<script src="js/furniture.js"></script>
+<script src="js/plan.js"></script>
+<script src="js/view3d.js"></script>
+<script src="js/materials.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/budget.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
