@@ -14,7 +14,15 @@ Ouvrir `index.html` dans un navigateur, ou utiliser le site GitHub Pages du dép
 
 ## Vos données
 
-Elles sont enregistrées dans le navigateur de l'appareil (pas sur GitHub). Un téléphone et un ordinateur ont donc chacun leurs données. Pour les transférer : bouton **Exporter** sur un appareil, puis **Importer** sur l'autre.
+Elles sont d'abord enregistrées dans le navigateur de l'appareil (jamais sur GitHub), donc l'application marche hors ligne.
+
+Page **Compte** : en se connectant, les plans, matériels, notes et réglages sont aussi copiés dans une base **Supabase** et retrouvés sur tous les appareils. Sans compte, un téléphone et un ordinateur ont chacun leurs données ; **Exporter** puis **Importer** permet de les transférer à la main.
+
+### Base de données (Supabase)
+
+- Tables `plans` (un plan par ligne, avec ses matériels et ses étapes), `notes` et `app_settings`, protégées par une règle de sécurité par ligne : chaque utilisateur ne voit et ne modifie que ses propres lignes. Les visiteurs non connectés n'ont aucun accès.
+- La clé présente dans `js/cloud.js` est une clé « publiable » : elle est faite pour être publique. Ne jamais y mettre une clé `service_role`.
+- Réglages à faire une fois dans le tableau de bord Supabase (Authentication, URL Configuration) : mettre **Site URL** à l'adresse du site GitHub Pages, pour que les liens reçus par email (confirmation du compte, mot de passe oublié) ramènent à l'application.
 
 ## Prix
 

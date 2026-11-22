@@ -23,8 +23,10 @@
     <a href="#notes" data-page="notes">Notes</a>
     <a href="#budget" data-page="budget">Budget</a>
     <a href="#couleurs" data-page="couleurs">Couleurs</a>
+    <a href="#compte" data-page="compte">Compte</a>
   </nav>
   <div class="top-actions">
+    <a id="cloudBadge" class="cloud off" href="#compte">Non connecté</a>
     <span id="saveState" class="save" aria-live="polite">Enregistré</span>
     <button class="btn ghost" id="btnExport" title="Télécharger une sauvegarde de tout le projet">Exporter</button>
     <button class="btn ghost" id="btnImport" title="Recharger une sauvegarde">Importer</button>
@@ -60,6 +62,7 @@
   <section id="page-notes" class="page" hidden></section>
   <section id="page-budget" class="page" hidden></section>
   <section id="page-couleurs" class="page" hidden></section>
+  <section id="page-compte" class="page" hidden></section>
 </main>
 
 <dialog id="dlg"></dialog>
@@ -76,6 +79,7 @@
 <script src="js/materials.js"></script>
 <script src="js/notes.js"></script>
 <script src="js/budget.js"></script>
+<script src="js/cloud.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

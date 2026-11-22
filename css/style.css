@@ -33,6 +33,14 @@ a{color:inherit}
 #nav a.on{background:var(--accent-soft);color:var(--accent)}
 .top-actions{display:flex;align-items:center;gap:8px}
 .save{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.cloud{font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap;color:var(--muted);padding:4px 9px;border-radius:99px;border:1px solid var(--line)}
+.cloud::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:var(--muted)}
+.cloud.ok{color:var(--accent)}.cloud.ok::before{background:var(--accent)}
+.cloud.syncing::before{background:#e0b43a}
+.cloud.error{color:var(--warn)}.cloud.error::before{background:var(--warn)}
+.acc{max-width:520px}.acc h2{font-size:18px;margin-bottom:8px}
+.acc .who{font-weight:600;margin:0 0 10px;font-size:16px}
+.msg.err{color:var(--warn);background:var(--warn-soft);padding:8px 10px;border-radius:8px;margin:10px 0 0;font-size:14px}
 
 .btn{border:1px solid var(--line);background:var(--panel);padding:7px 13px;border-radius:8px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px}
 .btn:hover{background:var(--panel2)}

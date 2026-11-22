@@ -28,13 +28,16 @@ function loadState() {
 
 let saveTimer = null;
 function setSaveState(t) { const el = $('#saveState'); if (el) el.textContent = t; }
+function saveNow() {
+  clearTimeout(saveTimer); saveTimer = null;
+  try { localStorage.setItem(KEY, JSON.stringify(S)); setSaveState('Enregistré'); }
+  catch (e) { setSaveState('Non enregistré : exportez une sauvegarde'); }
+}
+function flushSave() { if (saveTimer) { if (window.Cloud && Cloud.st) Cloud.afterSave(); saveNow(); } }
 function save() {
   setSaveState('Enregistrement…');
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => {
-    try { localStorage.setItem(KEY, JSON.stringify(S)); setSaveState('Enregistré'); }
-    catch (e) { setSaveState('Non enregistré : exportez une sauvegarde'); }
-  }, 250);
+  saveTimer = setTimeout(() => { if (window.Cloud && Cloud.st) Cloud.afterSave(); saveNow(); }, 250);
 }
 
 let toastTimer = null;
@@ -44,7 +47,7 @@ function toast(msg) {
 }
 
 /* ===== Navigation ===== */
-const PAGES = ['plan', 'materiels', 'notes', 'budget', 'couleurs'];
+const PAGES = ['plan', 'materiels', 'notes', 'budget', 'couleurs', 'compte'];
 function go(page, fromHash) {
   if (!PAGES.includes(page)) page = 'plan';
   S.page = page;
@@ -57,6 +60,7 @@ function go(page, fromHash) {
   if (page === 'notes') renderNotes();
   if (page === 'budget') renderBudget();
   if (page === 'couleurs') renderTheme();
+  if (page === 'compte') renderCompte();
   window.scrollTo(0, 0);
 }
 
