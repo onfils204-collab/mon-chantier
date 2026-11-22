@@ -27,3 +27,7 @@ Page **Compte** : en se connectant, les plans, matériels, notes et réglages so
 ## Prix
 
 Seuls le ciment et le fer à béton sont tirés de la presse tchadienne (2026). Tous les autres prix sont des estimations de départ à remplacer par vos devis.
+
+### Mise à jour du site
+
+GitHub Pages garde les fichiers en mémoire environ 10 minutes. Les fichiers de `index.html` portent un numéro de version (`?v=2`) : le changer à chaque mise en ligne pour que les téléphones chargent tout de suite les fichiers à jour.
